@@ -6,7 +6,7 @@ En un minimarket, una referencia de pago ayuda a reconocer una operación que ya
 
 ## Funcionamiento interno
 
-El archivo `.claude/settings.json` llama a `.claude/hooks/check_tests.sh` en dos momentos. `PostToolUse` coincide con las herramientas `Write` y `Edit` y ejecuta el script después de una edición. `Stop` lo ejecuta antes de que Claude Code termine su respuesta. El script cambia al directorio del proyecto mediante `CLAUDE_PROJECT_DIR`, ejecuta `python3 -m unittest -v` y guarda tanto la salida como el código de retorno. Si la suite falla, imprime el resultado en stderr y sale con código 2; si pasa, sale con código 0. La [documentación oficial](https://code.claude.com/docs/en/hooks) indica que el código 2 entrega ese error a Claude y, en `Stop`, le pide continuar. El hook comprueba y comunica: no revierte archivos automáticamente. Los cuatro archivos de código y configuración suman 71 líneas.
+El archivo `.claude/settings.json` (líneas 3-19) llama a `.claude/hooks/check_tests.sh` en dos momentos. `PostToolUse` coincide con las herramientas `Write` y `Edit` y ejecuta el script después de una edición. `Stop` lo ejecuta antes de que Claude Code termine su respuesta. El script (líneas 2-9) cambia al directorio del proyecto mediante `CLAUDE_PROJECT_DIR`, ejecuta `python3 -m unittest -v` y guarda tanto la salida como el código de retorno. Si la suite falla, imprime el resultado en stderr y sale con código 2; si pasa, sale con código 0. La [documentación oficial](https://code.claude.com/docs/en/hooks) indica que el código 2 entrega ese error a Claude y, en `Stop`, le pide continuar. El hook comprueba y comunica: no revierte archivos automáticamente. Los cuatro archivos de código y configuración suman 71 líneas.
 
 ## Fallo observado
 
