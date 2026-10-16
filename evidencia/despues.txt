@@ -1,0 +1,8 @@
+test_no_registra_dos_veces_la_misma_referencia (test_pagos.TestRegistrarPago.test_no_registra_dos_veces_la_misma_referencia) ... ok
+test_rechaza_monto_no_positivo (test_pagos.TestRegistrarPago.test_rechaza_monto_no_positivo) ... ok
+test_registra_un_pago (test_pagos.TestRegistrarPago.test_registra_un_pago) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

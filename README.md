@@ -9,7 +9,9 @@ Este ejemplo registra pagos simulados por referencia en un diccionario. Si la re
 - `.claude/settings.json`: conecta el script con los eventos `PostToolUse` para `Write|Edit` y `Stop`.
 - `.claude/hooks/check_tests.sh`: ejecuta la suite y devuelve código 2 con el error en stderr si falla.
 - `evidencia.md`: transcripción breve de las tres fases de la prueba y del intento con Claude Code.
+- `evidencia/`: salidas completas de los tests y del script durante la prueba controlada.
 - `post.md`: relato de la ejecución y sus límites.
+- `guion-exposicion.md`: orden y tiempos para la exposición de 10 minutos.
 
 ## Ejecución
 
@@ -32,5 +34,7 @@ Dentro de Claude Code, usa esta petición:
 El test `test_no_registra_dos_veces_la_misma_referencia` debe fallar con `AssertionError: True is not false`. El script comunica el fallo mediante stderr y sale con código 2. Tras restaurar `return False`, los tres tests vuelven a pasar. Según la [documentación de hooks de Claude Code](https://code.claude.com/docs/en/hooks), `PostToolUse` se ejecuta después de la edición y un `Stop` que sale con código 2 pide a Claude continuar. El hook no revierte la edición ni impide un commit.
 
 En esta ejecución se verificaron las tres fases y el código de salida del script **manualmente**. El intento de demostración dentro de Claude Code se detuvo antes de editar porque la instalación respondió `Not logged in · Please run /login`. Por eso `evidencia.md` distingue la prueba del script de una ejecución real de los eventos de Claude Code. Cuando haya una sesión iniciada, usa la petición anterior y conserva la transcripción del evento para completar esa parte de la demostración.
+
+El [guion de exposición](guion-exposicion.md) reserva el tramo central para mostrar el fallo y la recuperación en vivo ante el tutor.
 
 Este minilab comprueba una función en memoria. No integra Yape, no confirma transferencias y no ofrece persistencia ni protección frente a concurrencia.

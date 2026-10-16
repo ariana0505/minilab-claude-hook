@@ -10,7 +10,7 @@ El archivo `.claude/settings.json` (líneas 3-19) llama a `.claude/hooks/check_t
 
 ## Fallo observado
 
-Codex ejecutó la suite con `return False`: pasaron los tres tests. Después cambió temporalmente esa línea por `return True`, sin modificar `test_pagos.py`. Falló solo `test_no_registra_dos_veces_la_misma_referencia`, en su aserción de la línea 15. La salida incluyó `AssertionError: True is not false` y `FAILED (failures=1)`. El script del hook imprimió `Los tests fallaron. Revisa el cambio antes de terminar:` y terminó con código 2. La causa es concreta: aunque el diccionario sigue teniendo un único pago, la función afirma incorrectamente que aceptó el segundo registro. Codex restauró `return False`; los tres tests volvieron a pasar y el script salió con código 0. `evidencia.md` conserva las salidas abreviadas de las tres fases.
+Codex ejecutó la suite con `return False`: pasaron los tres tests. Después cambió temporalmente esa línea por `return True`, sin modificar `test_pagos.py`. Falló solo `test_no_registra_dos_veces_la_misma_referencia`, en su aserción de la línea 15. La salida incluyó `AssertionError: True is not false` y `FAILED (failures=1)`. El script del hook imprimió `Los tests fallaron. Revisa el cambio antes de terminar:` y terminó con código 2. La causa es concreta: aunque el diccionario sigue teniendo un único pago, la función afirma incorrectamente que aceptó el segundo registro. Codex restauró `return False`; los tres tests volvieron a pasar y el script salió con código 0. `evidencia.md` enlaza los registros completos.
 
 ## Decisiones y límites
 

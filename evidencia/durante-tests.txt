@@ -1,0 +1,17 @@
+test_no_registra_dos_veces_la_misma_referencia (test_pagos.TestRegistrarPago.test_no_registra_dos_veces_la_misma_referencia) ... FAIL
+test_rechaza_monto_no_positivo (test_pagos.TestRegistrarPago.test_rechaza_monto_no_positivo) ... ok
+test_registra_un_pago (test_pagos.TestRegistrarPago.test_registra_un_pago) ... ok
+
+======================================================================
+FAIL: test_no_registra_dos_veces_la_misma_referencia (test_pagos.TestRegistrarPago.test_no_registra_dos_veces_la_misma_referencia)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/ariana/github/MiniLabClaudeCode/minilab-claude-hook/test_pagos.py", line 15, in test_no_registra_dos_veces_la_misma_referencia
+    self.assertFalse(registrar_pago(pagos, "YAPE-001", 1500))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=1)
