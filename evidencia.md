@@ -54,4 +54,4 @@ Se inició `claude -p` desde el directorio del minilab con la petición de cambi
 Not logged in · Please run /login
 ```
 
-Por tanto, esta evidencia demuestra el script y el fallo del test, pero no demuestra que Claude haya recibido la salida del hook ni que haya restaurado el archivo. La restauración de esta prueba la hice yo.
+Por tanto, esta evidencia demuestra el script y el fallo del test, pero no demuestra que Claude Code haya recibido la salida del hook ni que haya restaurado el archivo. Codex hizo la edición temporal, la prueba y la restauración.
