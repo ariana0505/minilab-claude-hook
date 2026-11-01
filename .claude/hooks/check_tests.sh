@@ -1,5 +1,6 @@
 #!/bin/sh
-cd "$CLAUDE_PROJECT_DIR" || exit 2
+proyecto=${CLAUDE_PROJECT_DIR:-"$(dirname "$0")/../.."}
+cd "$proyecto" || exit 2
 
 resultado=$(python3 -m unittest -v 2>&1)
 estado=$?
